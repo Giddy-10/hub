@@ -1,4 +1,5 @@
 "use client"
+import { redirect, useRouter } from "next/navigation"
 import React, { useEffect, useState } from "react"
 
 interface CategoryType {
@@ -16,6 +17,7 @@ const page = () => {
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<string | null>(null)
 
+    const router = useRouter()
     const difficulties: DifficultyType[] = ["easy", "medium", "hard"]
 
     useEffect(() => {
@@ -38,6 +40,29 @@ const page = () => {
         fetchCategories()
     }, [])
 
+    const goToQuestions = () => {
+        try {
+            const baseUrl = "/quiz/q"
+            const url = new URL(baseUrl, window.location.href)
+            const searchParams = new URLSearchParams()
+
+            if (selectedCategory) {
+                searchParams.append("cat", String(selectedCategory))
+            }
+
+            if (selectedDifficulty) {
+                searchParams.append("dif", selectedDifficulty)
+            }
+
+            url.search = searchParams.toString()
+            console.log("Fetching from:", url.toString())
+            router.push(url.toString())
+        } catch (e) {
+            console.log(e)
+            return
+        }
+    }
+
     if (loading) {
         return <div>Loading...</div>
     }
@@ -47,7 +72,7 @@ const page = () => {
     }
     return (
         <div>
-            <div className="px-4 mb-10 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:my-6">
+            <div className="px-4 mb-32 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:my-6">
                 <h2>Choose Category:</h2>
 
                 <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 [&>div]:px-8 [&>div]:py-5 [&>div]:text-lg [&>div]:rounded-xl">
@@ -75,7 +100,7 @@ const page = () => {
 
                 <h2>Select Difficulty:</h2>
 
-                <div className="flex justify-evenly items-center text-2xl [&>div]:px-12 [&>div]:py-6 [&>div]:rounded-xl">
+                <div className="flex justify-evenly items-center text-2xl [&>div]:px-10 [&>div]:py-5 [&>div]:rounded-xl">
                     {difficulties.map((difficulty) => {
                         if (selectedDifficulty == difficulty)
                             return (
@@ -99,6 +124,14 @@ const page = () => {
                         )
                     })}
                 </div>
+                {selectedCategory && selectedDifficulty && (
+                    <div
+                        className="mt-20 mx-auto w-fit py-8 px-20 rounded-xl bg-(--success) text-4xl cursor-pointer duration-100 hover:scale-110 active:scale-90"
+                        onClick={() => goToQuestions()}
+                    >
+                        Start
+                    </div>
+                )}
             </div>
         </div>
     )
