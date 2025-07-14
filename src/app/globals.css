@@ -92,7 +92,11 @@
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.551 0.027 264.364);
 
-    --success: #19741d
+    --active: #155ca4;
+    --success: #19741d;
+    --success-foreground: #1cb521;
+    --failure: #74191d;
+    --failure-foreground: #b51c21;
 }
 
 /* :root {

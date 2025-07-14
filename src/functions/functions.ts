@@ -23,6 +23,7 @@ export interface QuestionType {
     question: string
     correct_answer: string
     incorrect_answers: string[]
+    all_answers_shuffled?: string[];
 }
 
 export const difficulties: DifficultyType[] = ["easy", "medium", "hard"]
