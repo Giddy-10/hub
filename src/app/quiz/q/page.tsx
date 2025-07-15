@@ -108,9 +108,6 @@ const page = () => {
         setSelectedAnswers(Array(qCount).fill(""))
     }, [questions])
 
-    useEffect(() => {
-        console.log(selectedAnswers)
-    }, [selectedAnswers])
 
     if (loading || !selectedAnswers) {
         return <div>Loading...</div>

@@ -14,7 +14,7 @@ const Nav = () => {
                 <div>
                     <Link
                         href={"/"}
-                        className="block audiowide my-2 py-2 px-4 border border-foreground/10 rounded-sm text-3xl bg-foreground/5 duration-100 hover:border-foreground/30 hover:bg-foreground/10"
+                        className="block audiowide my-2 py-2 px-4 border border-foreground/20 rounded-sm text-3xl bg-foreground/5 duration-100 hover:border-foreground/40 hover:bg-foreground/10"
                     >
                         Ü
                     </Link>

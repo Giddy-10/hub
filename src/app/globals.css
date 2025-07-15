@@ -198,3 +198,9 @@
     font-weight: 400;
     font-style: normal;
 }
+
+.moving-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
