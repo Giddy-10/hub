@@ -130,7 +130,7 @@ const Hero = () => {
                 // Start the very first animation for this element after a slight delay
                 // The initial `gsap.set` will position it, then the first tween will fade it in
                 gsap.to(el, {
-                    delay: gsap.utils.random(1, 1.5), // Stagger initial starts
+                    delay: gsap.utils.random(.5, 1), // Stagger initial starts
                     duration: 0.8, // Small duration for fade-in/scale-up
                     opacity: .1,
                     scale: 1,

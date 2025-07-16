@@ -47,6 +47,11 @@ const page = () => {
                     results,
                 }: { response_code: number; results: QuestionType[] } =
                     await data.json()
+                if (response_code != 0) {
+                    setError("Problem while fetching")
+                    return
+                }
+                setError(null)
                 const processedQuestions: QuestionType[] = results.map(
                     (q: any) => {
                         const decodedQuestion: QuestionType = {
@@ -68,6 +73,7 @@ const page = () => {
                 )
                 setQuestions(processedQuestions)
             } catch (err: any) {
+                console.log("Caught while fetching")
                 setError(err.message)
             } finally {
                 setLoading(false)
@@ -113,7 +119,7 @@ const page = () => {
         return <div>Loading...</div>
     }
 
-    if (error) {
+    if (error && !questions) {
         return <div>Error: {error}</div>
     }
 
