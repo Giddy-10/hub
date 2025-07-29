@@ -14,9 +14,15 @@ const page = () => {
                     <ArrowDown className="inline animate-bounce" />
                 </p>
             </div>
-            <div className="my-16 flex flex-col justify-center items-center">
+            <div className="my-16 w-96 mx-auto grid grid-cols-2 gap-2">
                 <Link href={"/jokes/dad"}>
                     <Button className="text-md">Generate a dad joke</Button>
+                </Link>
+                <Link href={"/jokes/jokeapi"}>
+                    <Button className="text-md">Random Joke</Button>
+                </Link>
+                <Link href={"/jokes/twopart"}>
+                    <Button className="text-md">Two-Part Jokes</Button>
                 </Link>
             </div>
         </div>
