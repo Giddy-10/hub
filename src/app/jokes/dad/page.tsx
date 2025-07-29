@@ -1,6 +1,6 @@
 import { JokeRefreshButton } from "@/components/JokeRefreshButton"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, RefreshCcw } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import React, { Suspense } from "react"
 

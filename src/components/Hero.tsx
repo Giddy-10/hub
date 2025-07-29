@@ -1,5 +1,5 @@
 "use client"
-import React, { ReactNode, useRef } from "react"
+import React, { useRef } from "react"
 import { Button } from "./ui/button"
 import {
     Atom,
@@ -25,7 +25,6 @@ type MovingElement = HTMLElement
 
 const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null)
-    const videoRef = useRef<HTMLVideoElement>(null)
 
     useGSAP(
         () => {
