@@ -25,6 +25,7 @@ type MovingElement = HTMLElement
 
 const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null)
+    const videoRef = useRef<HTMLVideoElement>(null)
 
     useGSAP(
         () => {
@@ -47,7 +48,7 @@ const Hero = () => {
                 console.warn(
                     "No elements with class 'moving-icon' found within the container."
                 )
-                return 
+                return
             }
 
             // Get dimensions of the *container*
@@ -95,8 +96,10 @@ const Hero = () => {
                     scale: 0.4, // Start smaller
                     // Add a custom property for debugging initial position
                     // This will be useful if the elements are still top-left
-                    _gsapDebug: `Initial set to x: ${containerWidth / 2}, y: ${containerHeight / 2}`
-                });
+                    _gsapDebug: `Initial set to x: ${containerWidth / 2}, y: ${
+                        containerHeight / 2
+                    }`,
+                })
 
                 const createNextTween = () => {
                     // Calculate a new random target point *within bounds*
@@ -130,9 +133,9 @@ const Hero = () => {
                 // Start the very first animation for this element after a slight delay
                 // The initial `gsap.set` will position it, then the first tween will fade it in
                 gsap.to(el, {
-                    delay: gsap.utils.random(.5, 1), // Stagger initial starts
+                    delay: gsap.utils.random(0.5, 1), // Stagger initial starts
                     duration: 0.8, // Small duration for fade-in/scale-up
-                    opacity: .1,
+                    opacity: 0.1,
                     scale: 1,
                     onComplete: createNextTween, // Once faded in, start the continuous movement
                 })
