@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import React, { Suspense } from "react"
+import VotingButtons from "@/components/VotingButtons";
 
 interface JokeType {
     id: string
@@ -17,6 +18,7 @@ const page = async () => {
         },
     })
     const joke: JokeType = await data.json()
+
     return (
         <div>
             <div className="flex flex-col gap-4">
@@ -29,6 +31,12 @@ const page = async () => {
                         {joke.joke ? `${joke.joke}` : "Unlucky, unlucky!!"}
                     </p>
                 </Suspense>
+
+                {/* ✅ Voting buttons below the joke */}
+                <div className="flex justify-center my-4">
+                    <VotingButtons />
+                </div>
+
                 <div className="flex justify-evenly">
                     <Link href="/jokes">
                         <Button className="text-md">
