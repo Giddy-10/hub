@@ -1,7 +1,7 @@
 'use client';
 
+import { AuthFormData } from '@/app/types/auth';
 import React, { useState } from 'react';
-import { AuthFormData } from '@/types/auth';
 
 interface Props {
   isSignup?: boolean;

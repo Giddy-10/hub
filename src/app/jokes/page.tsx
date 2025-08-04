@@ -15,14 +15,26 @@ const page = () => {
                 </p>
             </div>
             <div className="my-16 w-96 mx-auto grid grid-cols-2 gap-2">
+                <Link
+                    href={"/jokes/hub-jokes"}
+                    className="col-span-2 w-full mb-6"
+                >
+                    <Button className="text-md w-full">HÜB Jokes</Button>
+                </Link>
                 <Link href={"/jokes/dad"}>
-                    <Button className="text-md">Generate a dad joke</Button>
+                    <Button className="text-md" variant={"outline"}>
+                        Generate a dad joke
+                    </Button>
                 </Link>
                 <Link href={"/jokes/jokeapi"}>
-                    <Button className="text-md">Random Joke</Button>
+                    <Button className="text-md" variant={"outline"}>
+                        Random Joke
+                    </Button>
                 </Link>
                 <Link href={"/jokes/twopart"}>
-                    <Button className="text-md">Two-Part Jokes</Button>
+                    <Button className="text-md" variant={"outline"}>
+                        Two-Part Jokes
+                    </Button>
                 </Link>
             </div>
         </div>
