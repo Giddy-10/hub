@@ -1,3 +1,5 @@
+import { jokeExamples } from "./mockdata";
+
 export function shuffleArrayInPlace<T>(array: T[]) {
     let currentIndex = array.length,
         randomIndex
@@ -150,4 +152,9 @@ export const customQuestions: {
             incorrect_answers: ["Caballo", "Toro", "Perro"],
         },
     ],
+}
+
+export const getHubJokeExample = () => {
+    const randIndex = Math.floor(Math.random() * jokeExamples.length)
+    return jokeExamples[randIndex]
 }

@@ -15,7 +15,7 @@ interface JokeType2 {
 const page = async () => {
     const data = await fetch(
         "https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious"
-    )
+    ) || {}
     const joke: JokeType2 = await data.json()
     return (
         <div>
@@ -38,7 +38,16 @@ const page = async () => {
                                 <span className="block">{joke.delivery}</span>
                             </span>
                         ) : (
-                            "Unlucky, unlucky!!"
+                            <span>
+                                {"Unlucky, unlucky!!"}
+                                <Link
+                                    href="https://i.imgflip.com/42wwdw.jpg"
+                                    className="text-foreground underline"
+                                    target="_blank"
+                                >
+                                    Click here
+                                </Link>{" "}
+                            </span>
                         )}
                     </p>
                 </Suspense>

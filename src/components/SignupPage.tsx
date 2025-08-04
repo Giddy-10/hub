@@ -2,7 +2,7 @@
 
 import React from 'react';
 import AuthForm from '@/components/AuthForm';
-import { AuthFormData } from '@/types/auth';
+import { AuthFormData } from '@/app/types/auth';
 
 const SignupPage: React.FC = () => {
   const handleSignup = async (data: AuthFormData) => {
