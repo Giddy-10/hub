@@ -3,12 +3,12 @@
 import React, { useState } from 'react';
 import { AuthFormData } from '@/types/auth';
 
-interface Props {
+interface AuthFormProps {
   isSignup?: boolean;
   onSubmit: (data: AuthFormData) => void;
 }
 
-const AuthForm: React.FC<Props> = ({ isSignup = false, onSubmit }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ isSignup = false, onSubmit }) => {
   const [formData, setFormData] = useState<AuthFormData>({
     email: '',
     password: '',
@@ -25,49 +25,46 @@ const AuthForm: React.FC<Props> = ({ isSignup = false, onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 border rounded shadow">
-      <h2 className="text-2xl font-semibold mb-4">{isSignup ? 'Sign Up' : 'Log In'}</h2>
+    <form onSubmit={handleSubmit} className="w-full max-w-sm p-4 border rounded space-y-4">
+      <h2 className="text-xl font-semibold text-center">{isSignup ? 'Sign Up' : 'Log In'}</h2>
 
       {isSignup && (
-        <div className="mb-4">
-          <label className="block">Username</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border rounded"
+        />
       )}
 
-      <div className="mb-4">
-        <label className="block">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        className="w-full p-2 border rounded"
+      />
 
-      <div className="mb-4">
-        <label className="block">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-          required
-        />
-      </div>
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+        required
+        className="w-full p-2 border rounded"
+      />
 
-      <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
-        {isSignup ? 'Create Account' : 'Log In'}
+      <button
+        type="submit"
+        className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+      >
+        {isSignup ? 'Sign Up' : 'Log In'}
       </button>
     </form>
   );
