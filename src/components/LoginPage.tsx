@@ -1,16 +1,19 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import AuthForm from "@/components/AuthForm"
 import { AuthFormData } from "@/app/types/auth"
 import Cookies from "js-cookie"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { Spinner } from "./spectrumui/spinner-dependencies"
 
 const LoginPage: React.FC = () => {
+    const [loading, setLoading] = useState<boolean>(false)
     const router = useRouter()
 
     const handleLogin = async (data: AuthFormData) => {
         try {
+            setLoading(true)
             const res = await fetch(
                 "https://hub-backend-qtb7.onrender.com/auth/login",
                 {
@@ -41,6 +44,14 @@ const LoginPage: React.FC = () => {
                 alert(error.message)
             }
         }
+    }
+
+    if (loading) {
+        return (
+            <div className="min-h-dvh flex flex-col items-center justify-center">
+                <Spinner size={"large"} />
+            </div>
+        )
     }
 
     return (

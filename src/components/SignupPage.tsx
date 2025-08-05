@@ -1,12 +1,14 @@
 "use client"
-import React from "react"
+import React, { useState } from "react"
 import AuthForm from "@/components/AuthForm"
 import { AuthFormData } from "@/app/types/auth"
 import Cookies from "js-cookie"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { Spinner } from "./spectrumui/spinner-dependencies"
 
 const SignupPage: React.FC = () => {
+    const [loading, setLoading] = useState<boolean>(false)
     const router = useRouter()
 
     const handleSignup = async (data: AuthFormData) => {
@@ -38,6 +40,14 @@ const SignupPage: React.FC = () => {
                 alert(error.message)
             }
         }
+    }
+
+    if (loading) {
+        return (
+            <div className="min-h-dvh flex flex-col items-center justify-center">
+                <Spinner size={"large"} />
+            </div>
+        )
     }
 
     return (
