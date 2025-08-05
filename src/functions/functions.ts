@@ -154,6 +154,13 @@ export const customQuestions: {
     ],
 }
 
+export interface HubJokesType {
+    id: number
+    content: string
+    category: string
+    // vote_type: "upvote" | "downvote"
+}
+
 export const getHubJokeExample = () => {
     const randIndex = Math.floor(Math.random() * jokeExamples.length)
     return jokeExamples[randIndex]

@@ -5,6 +5,7 @@ const navLinks = [
     { name: "Home", link: "/" },
     { name: "Quiz", link: "/quiz" },
     { name: "Jokes", link: "/jokes" },
+    { name: "Sign Up", link: "/signup" },
 ]
 
 const Nav = () => {

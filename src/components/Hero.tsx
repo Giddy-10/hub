@@ -28,13 +28,28 @@ const Hero = () => {
 
     useGSAP(
         () => {
-            console.log("useGSAP hook started.")
 
             // Early exit if containerRef.current is null (e.g., during SSR)
             if (!containerRef.current) {
                 console.warn("Container ref is not attached to the DOM.")
                 return
             }
+
+            gsap.fromTo(
+                "#hero-text-container",
+                {
+                    y: 100,
+                    scale: 0.7,
+                    opacity: 0,
+                },
+                {
+                    y: 0,
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.7,
+                    ease: "power3.inOut",
+                }
+            )
 
             const elements: MovingElement[] = gsap.utils.toArray(
                 ".moving-icon",
@@ -132,8 +147,8 @@ const Hero = () => {
                 // Start the very first animation for this element after a slight delay
                 // The initial `gsap.set` will position it, then the first tween will fade it in
                 gsap.to(el, {
-                    delay: gsap.utils.random(0.5, 1), // Stagger initial starts
-                    duration: 0.8, // Small duration for fade-in/scale-up
+                    delay: gsap.utils.random(0.4, 1.5), // Stagger initial starts
+                    duration: 0.4, // Small duration for fade-in/scale-up
                     opacity: 0.1,
                     scale: 1,
                     onComplete: createNextTween, // Once faded in, start the continuous movement
@@ -147,7 +162,7 @@ const Hero = () => {
             className="hero relative overflow-hidden w-full"
             ref={containerRef}
         >
-            <div className="px-16 py-8 rounded-4xl flex flex-col items-center justify-center gap-8 z-50 backdrop-blur-2xl">
+            <div id="hero-text-container" className="px-16 py-8 rounded-4xl flex flex-col items-center justify-center gap-8 z-50 backdrop-blur-2xl opacity-0">
                 <h1 className="text-8xl">THE HÜB</h1>
                 <p className="text-xl font-semibold opacity-90">
                     Your one-stop site for fun and educational quizzes

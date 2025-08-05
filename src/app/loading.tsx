@@ -3,7 +3,7 @@ import React from 'react'
 
 const loading = () => {
   return (
-    <div className='min-h-60 flex justify-center items-center'>
+    <div className='min-h-80 flex justify-center items-center'>
         <Spinner size={'large'} />
     </div>
   )

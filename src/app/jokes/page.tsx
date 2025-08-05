@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, PenBox, Star } from "lucide-react"
 import Link from "next/link"
 import React from "react"
 
@@ -14,12 +14,22 @@ const page = () => {
                     <ArrowDown className="inline animate-bounce" />
                 </p>
             </div>
-            <div className="my-16 w-96 mx-auto grid grid-cols-2 gap-2">
+            <div className="my-16 w-96 mx-auto grid grid-cols-2 gap-4">
                 <Link
                     href={"/jokes/hub-jokes"}
                     className="col-span-2 w-full mb-6"
                 >
                     <Button className="text-md w-full">HÜB Jokes</Button>
+                </Link>
+                <Link href={"/jokes/favourites"}>
+                    <Button className="text-md" variant={"outline"}>
+                        <Star /> Favourites
+                    </Button>
+                </Link>
+                <Link href={"/jokes/submit"}>
+                    <Button className="text-md" variant={"outline"}>
+                        <PenBox /> Submit a joke
+                    </Button>
                 </Link>
                 <Link href={"/jokes/dad"}>
                     <Button className="text-md" variant={"outline"}>

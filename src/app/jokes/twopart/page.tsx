@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import React, { Suspense } from "react"
-import VotingButtons from "@/components/VotingButtons" // ✅ Import voting buttons
 
 interface JokeType3 {
     id: number
@@ -38,11 +37,6 @@ const page = async () => {
                         )}
                     </p>
                 </Suspense>
-
-                {/* ✅ Voting buttons below the joke */}
-                <div className="flex justify-center my-4">
-                    <VotingButtons />
-                </div>
 
                 {/* Navigation and refresh */}
                 <div className="flex justify-evenly">
