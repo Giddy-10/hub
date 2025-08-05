@@ -23,7 +23,7 @@ Make sure you have the following installed:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/hub.git
+git clone https://github.com/Giddy-10/hub.git
 
 # Navigate into the directory
 cd hub
