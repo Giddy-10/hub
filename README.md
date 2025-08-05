@@ -68,7 +68,7 @@ yarn start
 
 ## 👥 Contributors
 
-* **Gideon** – Initialized the project.
+* **Gideon** – Initialized the project and worked on quiz functionality.
 * **Peter** – Worked on registration.
 * **Kariuki** – Implemented the upvote/downvote system.
 * **Collins** – Developed joke displays and handled overall styling.
