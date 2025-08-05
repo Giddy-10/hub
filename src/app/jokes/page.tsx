@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowDown, PenBox, Star } from "lucide-react"
+import { ArrowDown, PenBox } from "lucide-react"
 import Link from "next/link"
 import React from "react"
 
@@ -21,13 +21,8 @@ const page = () => {
                 >
                     <Button className="text-md w-full">HÜB Jokes</Button>
                 </Link>
-                <Link href={"/jokes/favourites"}>
-                    <Button className="text-md" variant={"outline"}>
-                        <Star /> Favourites
-                    </Button>
-                </Link>
-                <Link href={"/jokes/submit"}>
-                    <Button className="text-md" variant={"outline"}>
+                <Link href={"/jokes/submit"} className="col-span-2 w-full mb-6">
+                    <Button className="text-md w-full" size={"icon"} variant={"outline"}>
                         <PenBox /> Submit a joke
                     </Button>
                 </Link>
