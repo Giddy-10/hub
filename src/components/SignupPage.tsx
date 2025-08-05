@@ -12,6 +12,7 @@ const SignupPage: React.FC = () => {
     const router = useRouter()
 
     const handleSignup = async (data: AuthFormData) => {
+        setLoading(true)
         try {
             const res = await fetch(
                 "https://hub-backend-qtb7.onrender.com/auth/register",
