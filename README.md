@@ -7,7 +7,7 @@ HÜB is a **Next.js** project that delivers a lighthearted, interactive experien
 * **Fun Quizzes:** Choose from a variety of quizzes to test your knowledge (or just have a good time).
 * **Jokes from Multiple APIs:** Access jokes from several sources for endless laughs.
 * **User Joke Submission:** Share your best joke with the community.
-* **Voting System:** Upvote or downvote jokes to help the best ones rise to the top.
+* **Voting System:** Upvote or downvote jokes.
 * **Responsive Styling:** Clean, user-friendly interface for all devices.
 
 ## 🚀 Getting Started
